@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  app: # Service called "app"
+    build:
+      context: . # Context of the build configuration will be our project root directory
+    ports:
+      - "8000:8000" # Map project port to image port to be used in our local machine
+    volumes:
+      - ./app:/app # Whenever we change something in the project it will be automatically updated in the container. So we don't need to restart Docker to apply the changes.
+    command: > # command used in docker to run our application. This port will then be mapped to docker port 8000 that is defined in "ports"
+      sh -c "python manage.py runserver 0.0.0.0:8000"
