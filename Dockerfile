@@ -12,3 +12,5 @@ COPY ./app /app
 
 RUN adduser -D user
 USER user
+
+# Command to init project: docker-compose run app sh -c "django-admin.py startproject app ."
