@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.6"
+
+services: # services we need to use. All the sub services will be contained in the docker-compose.yml file
+  - docker
+
+before_script: pip install docker-compose ## needed to install docker compose
+
+script:
+  - docker-compose run app sh -c "python manage.py test && flake8"
